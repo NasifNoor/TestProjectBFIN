@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2019 at 07:35 PM
+-- Generation Time: Sep 16, 2019 at 12:32 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.35
 
@@ -41,7 +41,9 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `name`, `email`, `address`) VALUES
 (1, 'Nasif', 'nasif@ofb.org', 'Dhaka'),
-(3, 'Nasif Hasan', 'nasifhasan@gmail.com', 'Dhaka, Bangladesh');
+(3, 'Nasif Hasan', 'nasifhasan@gmail.com', 'Dhaka, Bangladesh'),
+(4, 'Manik', 'manik@gmail.com', 'Dinajpur'),
+(5, 'Habib', 'habib@gmail.com', 'Dhaka');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,19 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `productid`, `customername`, `customeremail`, `date`, `amount`, `currency`, `quantity`, `unitprice`, `discount`) VALUES
-(2, 1, 'Nasif', 'nasif@ofb.org', '2019-08-07', 950, 'euro', 1, 1000, 5);
+(2, 1, 'Nasif', 'nasif@ofb.org', '2019-08-07', 950, 'euro', 1, 1000, 5),
+(3, 1, 'Nasif', 'nasif@ofb.org', '2019-09-12', 4500, 'doller', 5, 1000, 10),
+(4, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 1900, 'euro', 1, 2000, 5),
+(5, 1, 'Nasif', 'nasif@ofb.org', '2019-09-12', 475, 'euro', 1, 500, 5),
+(6, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 950, 'euro', 1, 1000, 5),
+(7, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 95, 'euro', 1, 100, 5),
+(8, 1, 'Nasif Hasan', 'nasifhasan@gmail.com', '2019-09-11', 95, 'euro', 1, 100, 5),
+(9, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 950, 'euro', 10, 100, 5),
+(10, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 950, 'euro', 10, 100, 5),
+(11, 1, 'Nasif', 'nasif@ofb.org', '2019-09-11', 432, 'euro', 1, 455, 5),
+(12, 2, 'Habib', 'habib@gmail.com', '2019-09-11', 638, 'euro', 5, 150, 15),
+(13, 3, 'Manik', 'manik@gmail.com', '2019-09-17', 99, 'euro', 1, 100, 1),
+(14, 2, 'Manik', 'manik@gmail.com', '2019-09-18', 3120, 'doller', 2, 1560, 0);
 
 -- --------------------------------------------------------
 
@@ -87,7 +101,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category`, `description`) VALUES
-(1, 'Olive', 'Oil', 'Pure Olive Oil');
+(1, 'Olive', 'Oil', 'Pure Olive Oil'),
+(2, 'Mango', 'Fruit', 'From Rajshahi'),
+(3, 'Banana', 'Fruit', 'Fresh');
 
 -- --------------------------------------------------------
 
@@ -146,19 +162,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
