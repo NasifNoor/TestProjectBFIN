@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//logout
+Route::get('/logout', 'LogoutController@index');
 //login
 Route::get('/', 'LoginController@index')->name('login.index');
 Route::post('/', 'LoginController@verify');

@@ -75,14 +75,15 @@ class UserController extends Controller
             'discount'=>'required',
 		])->validate();
       		
-      		$cus= Customer::all()->where('name', $req->customer);
-      		$pro= Product::all()->where('name', $req->item);
+      		$cus= Customer::find($req->customer);
+      		$pro= Product::find($req->item);
             $inv  = new Invoice();
-            $inv->productid = $pro[0]->id;
-            $inv->customername = $req->customer;
-            $inv->customeremail = $cus[0]->email;
+            $inv->productid = $pro->id;
+            $inv->customername = $cus->name;
+            $inv->customeremail = $cus->email;
             $inv->date = $req->date;
-             $t=(($req->unitprice*$req->quantity)-(($req->discount*$req->unitprice)/100));
+             $tm=($req->unitprice*$req->quantity);
+             $t=$tm-(($req->discount*$tm)/100);
             $inv->amount = $t;
             $inv->currency = $req->currency;
             $inv->discount = $req->discount;
@@ -93,11 +94,13 @@ class UserController extends Controller
         
             $req->session()->flash('msg', "A new Invoice is created successfully!");
             
+            //return view($cus);
             return redirect()->route('User.index');
     }
     public function viewInvoice(){
     	$inv= Invoice::all();
     	return view('User.viewInvoice', ['inv'=>$inv]);
+        //return view($inv[0]->id);
     }
     public function invoiceDetails($id){
     	$inv= Invoice::find($id);
